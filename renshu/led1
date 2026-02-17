@@ -1,0 +1,16 @@
+#include "mono_con.h"
+
+int ledPara[] = {B000, B001, B010, B100, B011, B110, B101, B111}; //消灯、赤、青、緑、紫、青緑、黄、白
+
+void setup() {
+  // put your setup code here, to run once:
+  config_init();
+  serial_init();
+  noTone(BZ_PIN);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  lm.color.GBR = ledPara[6];
+  led_stepmotor(lm.b8);
+}

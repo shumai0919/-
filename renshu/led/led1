@@ -11,6 +11,6 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  lm.color.GBR = ledPara[6];
+  lm.color.GBR = ledPara[2];
   led_stepmotor(lm.b8);
 }

@@ -1,0 +1,17 @@
+#include "mono_con.h"
+
+void setup() {
+  // put your setup code here, to run once:
+  config_init();
+  serial_init();
+  noTone(BZ_PIN);
+  disp(num[8], num[8]);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  disp(num[8], num[8]);
+  delay(500);
+  disp(num[10], num[10]);
+  delay(500);
+}

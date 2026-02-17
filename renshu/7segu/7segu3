@@ -1,0 +1,18 @@
+#include "mono_con.h"
+
+int count = 0;
+
+void setup() {
+  // put your setup code here, to run once:
+  config_init();
+  serial_init();
+  noTone(BZ_PIN);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  disp(num[count], num[count]);
+  count++;
+  if (count > 9) count = 0;
+  delay(1000);
+}

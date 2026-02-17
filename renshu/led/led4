@@ -1,0 +1,29 @@
+
+#include "mono_con.h"
+
+int ledPara[] = {B000, B001, B010, B100, B011, B110, B101, B111}; //消灯0、赤1、青2、緑3、紫4、青緑5、黄6、白7
+int order[] = {0, 1, 3, 6, 2, 4, 5, 7, 0};
+
+int count = 0, dir = 1;
+
+void setup() {
+  // put your setup code here, to run once:
+  config_init();
+  serial_init();
+  noTone(BZ_PIN);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  lm.color.GBR = ledPara[order[count]];
+  led_stepmotor(lm.b8);
+  delay(1000);
+  if (dir == 1) {
+    count++;
+    if (count > 7) dir = -1;
+  } else {
+    count--;
+    if (count < 1) dir = 1;
+  }
+  
+}

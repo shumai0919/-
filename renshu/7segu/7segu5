@@ -1,0 +1,27 @@
+#define USE_TIMER3_ISR
+#include "mono_con.h"
+
+word tc = 1000;
+int count = 99;
+
+void setup() {
+  // put your setup code here, to run once:
+  config_init();
+  serial_init();
+  noTone(BZ_PIN);
+}
+
+ISR(TIMER3_COMPA_vect) {
+  tc++;
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  if (tc > 200) {
+    tc = 0;
+    disp(num[count / 10], num[count % 10]);
+    count--;
+    if (count < 0) count = 99;
+  }
+}
+
